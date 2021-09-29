@@ -1,0 +1,17 @@
+select c.nombre, c.email
+from Candidatos c
+INNER JOIN Evaluacion e on c.id=e.candidato_id
+INNER JOIN Jueces j on e.juez_id = j.id
+where j.nombre="Ramon" AND e.fase=2;
+
+
+select j.nombre
+from Jueces j
+INNER JOIN Evaluacion e on e.juez_id=j.id
+INNER JOIN Candidatos c on c.id=e.candidato_id
+where c.id=1;
+
+select j.nombre, count(*)
+from Jueces j
+INNER JOIN Evaluacion e on e.juez_id=j.id
+group by(j.nombre)
